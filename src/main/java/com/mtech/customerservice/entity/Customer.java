@@ -2,12 +2,15 @@ package com.mtech.customerservice.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "customers")
 @Data
-public class Customer {
+public class Customer implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "customer_id")
