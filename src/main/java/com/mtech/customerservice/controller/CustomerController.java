@@ -41,7 +41,7 @@ public class CustomerController {
     public ResponseEntity<Customer> updateCustomer(@PathVariable Long id, @RequestBody Customer customerDetails) {
         try {
             Customer updatedCustomer = customerService.updateCustomer(id, customerDetails);
-            customerEventPublisher.publishCustomerUpdatedEvent(updatedCustomer); // Publish update event
+            customerEventPublisher.publishCustomerUpdatedEvent(updatedCustomer);
             return ResponseEntity.ok(updatedCustomer);
         } catch (RuntimeException e) {
             return ResponseEntity.notFound().build();
